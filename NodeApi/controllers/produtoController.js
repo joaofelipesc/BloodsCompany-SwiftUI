@@ -20,3 +20,20 @@ exports.createProduto = async (req, res) => {
     res.status(400).json({ message: 'Erro ao cadastrar produto', error });
   }
 };
+
+exports.deleteProduto = async (req, res) => {
+  const { id } = req.params; // Obtém o ID do produto da URL
+
+  try {
+    // Remove o produto do banco de dados
+    const produtoDeletado = await Produto.findByIdAndDelete(id);
+
+    if (!produtoDeletado) {
+      return res.status(404).json({ message: 'Produto não encontrado' });
+    }
+
+    res.status(200).json({ message: 'Produto excluído com sucesso', produto: produtoDeletado });
+  } catch (error) {
+    res.status(500).json({ message: 'Erro ao excluir o produto', error });
+  }
+};
