@@ -12,53 +12,40 @@ import Combine
 struct CardProduto: View {
     let produto: Produto
     @StateObject private var imageLoader = ImageLoader()
-    @EnvironmentObject var favoritos: Favoritos // Injeta o observable object Favoritos
 
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 10)
-                .fill(Color.white)
-                .frame(width: 180, height: 220)
+        ZStack(alignment: .bottom) { // Alinhamento na parte inferior para a sobreposição
+            if let image = imageLoader.image {
+                image
+                    .resizable()
+                    .scaledToFill() // Preenche todo o espaço
+                    .frame(width: 180, height: 220)
+                    .clipped() // Recorta a imagem para caber no frame
+            } else {
+                ProgressView()
+                    .frame(width: 180, height: 220)
+            }
 
-            VStack {
-                if let image = imageLoader.image {
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 150, height: 150)
-                        .cornerRadius(8)
-                } else {
-                    ProgressView()
-                        .frame(width: 150, height: 150)
-                }
+            // Sobreposição com gradiente para melhor legibilidade do texto
+            LinearGradient(gradient: Gradient(colors: [.clear, .black.opacity(0.5)]), startPoint: .top, endPoint: .bottom)
 
+            VStack(alignment: .center, spacing: 4) { // Centraliza o conteúdo verticalmente
                 Text(produto.nome)
                     .font(.headline)
-                    .foregroundColor(.black)
+                    .foregroundColor(.white)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
+                    .lineLimit(2) // Limita a duas linhas para evitar transbordamento
 
-                Text("\(produto.preco, specifier: "%.2f")")
+                Text("R$ \(produto.preco, specifier: "%.2f")")
                     .font(.subheadline)
-                    .foregroundColor(.black)
-                    .padding(.bottom)
-                
-                HStack { // Adiciona o botão de favorito
-                    Spacer()
-                    Button(action: {
-                        toggleFavorite()
-                    }) {
-                        Image(systemName: favoritos.contains(produto.id) ? "heart.fill" : "heart")
-                            .foregroundColor(.red)
-                    }
-                    .buttonStyle(.plain) // Remove o estilo de botão padrão
-                    Spacer()
-                }
-                .padding(.bottom, 5)
-
-
+                    .foregroundColor(.white)
             }
+            .padding(.bottom, 10) // Adiciona um pequeno padding na parte inferior
         }
+        .frame(width: 180, height: 220) // Define o tamanho do frame explicitamente
+        .cornerRadius(10) // Adiciona cantos arredondados
+        .shadow(radius: 4, x: 2, y: 2) // Adiciona uma sombra sutil
         .onAppear {
             if let url = URL(string: produto.imagemURL) {
                 imageLoader.loadImage(from: url)
@@ -68,20 +55,11 @@ struct CardProduto: View {
             imageLoader.cancellable?.cancel()
         }
     }
-
-    private func toggleFavorite() {
-        if favoritos.contains(produto.id) {
-            favoritos.remove(produto.id)
-        } else {
-            favoritos.add(produto.id)
-        }
-    }
 }
-
 
 class ImageLoader: ObservableObject {
     @Published var image: Image? = nil
-    var cancellable: AnyCancellable? // Tornando acessível fora da classe
+    var cancellable: AnyCancellable?
 
     func loadImage(from url: URL) {
         cancellable = URLSession.shared.dataTaskPublisher(for: url)
@@ -98,4 +76,3 @@ class ImageLoader: ObservableObject {
         cancellable?.cancel()
     }
 }
-
