@@ -19,6 +19,7 @@
 		E00ECCEB2CF674AF005575AC /* CardProduto.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00ECCEA2CF674AF005575AC /* CardProduto.swift */; };
 		E00ECCED2CF68065005575AC /* ProdutoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00ECCEC2CF68065005575AC /* ProdutoView.swift */; };
 		E00ECCEF2CF680EE005575AC /* DetalhesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00ECCEE2CF680EE005575AC /* DetalhesView.swift */; };
+		E00ECCF12CF68FAF005575AC /* Favorito.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00ECCF02CF68FAF005575AC /* Favorito.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		E00ECCEA2CF674AF005575AC /* CardProduto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardProduto.swift; sourceTree = "<group>"; };
 		E00ECCEC2CF68065005575AC /* ProdutoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdutoView.swift; sourceTree = "<group>"; };
 		E00ECCEE2CF680EE005575AC /* DetalhesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesView.swift; sourceTree = "<group>"; };
+		E00ECCF02CF68FAF005575AC /* Favorito.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorito.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				E00ECCE32CF67134005575AC /* ProdutoBloods.swift */,
+				E00ECCF02CF68FAF005575AC /* Favorito.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				E00ECCEB2CF674AF005575AC /* CardProduto.swift in Sources */,
 				E00ECCB92CF66BCD005575AC /* ContentView.swift in Sources */,
 				E00ECCEF2CF680EE005575AC /* DetalhesView.swift in Sources */,
+				E00ECCF12CF68FAF005575AC /* Favorito.swift in Sources */,
 				E00ECCE42CF67134005575AC /* ProdutoBloods.swift in Sources */,
 				E00ECCB72CF66BCD005575AC /* AppBloodsCompanyApp.swift in Sources */,
 				E00ECCED2CF68065005575AC /* ProdutoView.swift in Sources */,

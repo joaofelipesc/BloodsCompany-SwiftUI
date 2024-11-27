@@ -13,5 +13,4 @@ struct Produto: Identifiable, Codable {
     let preco: Double
     let tamanho: String
     let imagemURL: String
-    let tipo: String
 }

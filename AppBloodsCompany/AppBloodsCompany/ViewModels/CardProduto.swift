@@ -11,7 +11,8 @@ import Combine
 
 struct CardProduto: View {
     let produto: Produto
-    @StateObject private var imageLoader = ImageLoader() // Image loader
+    @StateObject private var imageLoader = ImageLoader()
+    @EnvironmentObject var favoritos: Favoritos // Injeta o observable object Favoritos
 
     var body: some View {
         ZStack {
@@ -20,14 +21,14 @@ struct CardProduto: View {
                 .frame(width: 180, height: 220)
 
             VStack {
-                if let image = imageLoader.image { // Display image if loaded
+                if let image = imageLoader.image {
                     image
                         .resizable()
                         .scaledToFit()
                         .frame(width: 150, height: 150)
                         .cornerRadius(8)
                 } else {
-                    ProgressView() // Placeholder while loading
+                    ProgressView()
                         .frame(width: 150, height: 150)
                 }
 
@@ -41,6 +42,21 @@ struct CardProduto: View {
                     .font(.subheadline)
                     .foregroundColor(.black)
                     .padding(.bottom)
+                
+                HStack { // Adiciona o botão de favorito
+                    Spacer()
+                    Button(action: {
+                        toggleFavorite()
+                    }) {
+                        Image(systemName: favoritos.contains(produto.id) ? "heart.fill" : "heart")
+                            .foregroundColor(.red)
+                    }
+                    .buttonStyle(.plain) // Remove o estilo de botão padrão
+                    Spacer()
+                }
+                .padding(.bottom, 5)
+
+
             }
         }
         .onAppear {
@@ -49,11 +65,18 @@ struct CardProduto: View {
             }
         }
         .onDisappear {
-            imageLoader.cancellable?.cancel() // Cancel any ongoing image load if needed
+            imageLoader.cancellable?.cancel()
+        }
+    }
+
+    private func toggleFavorite() {
+        if favoritos.contains(produto.id) {
+            favoritos.remove(produto.id)
+        } else {
+            favoritos.add(produto.id)
         }
     }
 }
-
 
 
 class ImageLoader: ObservableObject {
