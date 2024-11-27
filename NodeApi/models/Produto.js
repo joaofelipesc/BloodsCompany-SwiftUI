@@ -7,7 +7,6 @@ const produtoSchema = new mongoose.Schema({
   preco: { type: Number, required: true },
   tamanho: { type: String, required: true },
   imagemURL: { type: String, required: true },
-  tipo: { type: String, required: true }
 });
 
 module.exports = mongoose.model('Produto', produtoSchema);
