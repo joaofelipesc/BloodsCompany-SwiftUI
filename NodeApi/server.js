@@ -14,7 +14,7 @@ mongoose.set('strictQuery', true);
 
 // Conexão com o MongoDB Atlas
 const uri = 'mongodb://tiagocps123:xq5pPEbqmbgf7Z1b@cluster-shard-00-00.62yiy.mongodb.net:27017,cluster-shard-00-01.62yiy.mongodb.net:27017,cluster-shard-00-02.62yiy.mongodb.net:27017/?ssl=true&replicaSet=atlas-m8v90o-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster';
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(uri, { dbName:"BloodsCompany", useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Conectado ao MongoDB Atlas'))
   .catch(err => console.log('Erro ao conectar ao MongoDB Atlas', err));
 
