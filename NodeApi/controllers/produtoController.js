@@ -3,9 +3,20 @@ const Produto = require('../models/Produto');
 // Retorna todos os produtos
 exports.getProdutos = async (req, res) => {
   try {
-    const produtos = await Produto.find();
+    let produtos = await Produto.find();
+
+    produtos = produtos.map(produto => ({
+      id: produto._id,
+      nome: produto.nome,
+      descricao: produto.descricao,
+      preco: produto.preco,
+      tamanho: produto.tamanho,
+      imagemURL: produto.imagemURL
+
+    })) 
     res.status(200).json(produtos);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: 'Erro ao buscar produtos', error });
   }
 };

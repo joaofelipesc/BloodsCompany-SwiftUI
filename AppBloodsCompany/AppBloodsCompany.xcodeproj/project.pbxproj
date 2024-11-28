@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8451F19E2CF78CFD00EE98A2 /* ProdutoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451F19D2CF78CFD00EE98A2 /* ProdutoService.swift */; };
+		8451F1A12CF78DE200EE98A2 /* CadastroProduto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8451F1A02CF78DE200EE98A2 /* CadastroProduto.swift */; };
 		E00ECCB72CF66BCD005575AC /* AppBloodsCompanyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00ECCB62CF66BCD005575AC /* AppBloodsCompanyApp.swift */; };
 		E00ECCB92CF66BCD005575AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00ECCB82CF66BCD005575AC /* ContentView.swift */; };
 		E00ECCBD2CF66BCE005575AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E00ECCBC2CF66BCE005575AC /* Assets.xcassets */; };
@@ -17,7 +19,6 @@
 		E00ECCE42CF67134005575AC /* ProdutoBloods.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00ECCE32CF67134005575AC /* ProdutoBloods.swift */; };
 		E00ECCE92CF6748A005575AC /* PaginaInicial.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00ECCE82CF6748A005575AC /* PaginaInicial.swift */; };
 		E00ECCEB2CF674AF005575AC /* CardProduto.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00ECCEA2CF674AF005575AC /* CardProduto.swift */; };
-		E00ECCED2CF68065005575AC /* ProdutoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00ECCEC2CF68065005575AC /* ProdutoView.swift */; };
 		E00ECCEF2CF680EE005575AC /* DetalhesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00ECCEE2CF680EE005575AC /* DetalhesView.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8451F19D2CF78CFD00EE98A2 /* ProdutoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdutoService.swift; sourceTree = "<group>"; };
+		8451F1A02CF78DE200EE98A2 /* CadastroProduto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroProduto.swift; sourceTree = "<group>"; };
 		E00ECCB32CF66BCD005575AC /* AppBloodsCompany.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppBloodsCompany.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E00ECCB62CF66BCD005575AC /* AppBloodsCompanyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBloodsCompanyApp.swift; sourceTree = "<group>"; };
 		E00ECCB82CF66BCD005575AC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,7 +55,6 @@
 		E00ECCE32CF67134005575AC /* ProdutoBloods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdutoBloods.swift; sourceTree = "<group>"; };
 		E00ECCE82CF6748A005575AC /* PaginaInicial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginaInicial.swift; sourceTree = "<group>"; };
 		E00ECCEA2CF674AF005575AC /* CardProduto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardProduto.swift; sourceTree = "<group>"; };
-		E00ECCEC2CF68065005575AC /* ProdutoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdutoView.swift; sourceTree = "<group>"; };
 		E00ECCEE2CF680EE005575AC /* DetalhesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8451F19C2CF78CBE00EE98A2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8451F19D2CF78CFD00EE98A2 /* ProdutoService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		E00ECCAA2CF66BCD005575AC = {
 			isa = PBXGroup;
 			children = (
@@ -104,8 +114,8 @@
 		E00ECCB52CF66BCD005575AC /* AppBloodsCompany */ = {
 			isa = PBXGroup;
 			children = (
+				8451F19C2CF78CBE00EE98A2 /* Service */,
 				E00ECCE72CF6719E005575AC /* ViewModels */,
-				E00ECCE62CF6716D005575AC /* ServicesApi */,
 				E00ECCE52CF67153005575AC /* Views */,
 				E00ECCE22CF67110005575AC /* Models */,
 				E00ECCB62CF66BCD005575AC /* AppBloodsCompanyApp.swift */,
@@ -153,17 +163,10 @@
 			children = (
 				E00ECCB82CF66BCD005575AC /* ContentView.swift */,
 				E00ECCE82CF6748A005575AC /* PaginaInicial.swift */,
-				E00ECCEC2CF68065005575AC /* ProdutoView.swift */,
 				E00ECCEE2CF680EE005575AC /* DetalhesView.swift */,
+				8451F1A02CF78DE200EE98A2 /* CadastroProduto.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		E00ECCE62CF6716D005575AC /* ServicesApi */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ServicesApi;
 			sourceTree = "<group>";
 		};
 		E00ECCE72CF6719E005575AC /* ViewModels */ = {
@@ -262,6 +265,9 @@
 				Base,
 			);
 			mainGroup = E00ECCAA2CF66BCD005575AC;
+			packageReferences = (
+				8451F19F2CF78D4E00EE98A2 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = E00ECCB42CF66BCD005575AC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -309,7 +315,8 @@
 				E00ECCEF2CF680EE005575AC /* DetalhesView.swift in Sources */,
 				E00ECCE42CF67134005575AC /* ProdutoBloods.swift in Sources */,
 				E00ECCB72CF66BCD005575AC /* AppBloodsCompanyApp.swift in Sources */,
-				E00ECCED2CF68065005575AC /* ProdutoView.swift in Sources */,
+				8451F19E2CF78CFD00EE98A2 /* ProdutoService.swift in Sources */,
+				8451F1A12CF78DE200EE98A2 /* CadastroProduto.swift in Sources */,
 				E00ECCE92CF6748A005575AC /* PaginaInicial.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -634,6 +641,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8451F19F2CF78D4E00EE98A2 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = E00ECCAB2CF66BCD005575AC /* Project object */;
 }
