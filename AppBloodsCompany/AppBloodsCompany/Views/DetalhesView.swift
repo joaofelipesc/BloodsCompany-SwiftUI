@@ -7,6 +7,8 @@ struct TelaDetalhes: View {
         VStack(alignment: .leading, spacing: 16) {
             AsyncImage(url: URL(string: produto.imagemURL)) { image in
                 image.resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 200, height: 200)
             } placeholder: {
                 ProgressView()
             }
